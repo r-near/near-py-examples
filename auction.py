@@ -35,11 +35,11 @@ class Auction:
         if current_time_ms > self.auction_end:
             raise Exception("Auction has ended")
             
-        if deposit {'<='} self.highest_bid["amount"]:
+        if deposit <= self.highest_bid["amount"]:
             raise Exception("Bid is not higher than current highest bid")
             
         # Update highest bid
-        self.highest_bid = \{
+        self.highest_bid = {
             "account_id": predecessor,
             "amount": deposit
         }
@@ -56,7 +56,7 @@ class Auction:
     def get_auction_status(self):
         """Returns the current auction status"""
         current_time_ms = time.time() * 1000
-        return \{
+        return {
             "ended": current_time_ms > self.auction_end,
             "end_time": self.auction_end,
             "current_time": current_time_ms,
