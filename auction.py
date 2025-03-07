@@ -83,8 +83,8 @@ class Auction:
         auctioneer = Storage.get_string(self.AUCTIONEER_KEY)
         
         # Transfer tokens to the auctioneer
-        from near_sdk_py import CrossContract
-        return CrossContract.transfer(auctioneer, highest_bid["bid"])
+        from near_sdk_py import Promise
+        return Promise.create_batch(auctioneer).transfer(highest_bid["bid"])
     
     @view
     def get_highest_bid(self):
