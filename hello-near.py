@@ -9,12 +9,12 @@ class HelloNear:
         self.storage["greeting"] = "Hello"
     
     @view
-    def get_greeting(self):
+    def get_greeting(self) -> str:
         """Returns the current greeting"""
         return self.storage["greeting"]
     
     @call
-    def set_greeting(self, message):
+    def set_greeting(self, message: str) -> str:
         """Sets a new greeting"""
         self.storage["greeting"] = message
         return message
